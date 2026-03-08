@@ -1,0 +1,17 @@
+users:
+  action: [create_account, forgot_password, login]
+  database: finstanik
+  collection: users
+  data: {"fullname": fullname, "email": email, "password": password, "word": word}
+
+portfolios:
+  action: [cash & savings, Investements]
+  database: finstanik
+  collection: portfolios
+  data: {"email": email, "type": type, "id": id, "currency": currency, "name": portfolioname}
+
+entries:
+  action: [cash, Investements]
+  database: finstanik
+  collection: entries
+  data: {"amount": amount, "portfolioid": portfolioid, "type": type, "date": date, "email": email}

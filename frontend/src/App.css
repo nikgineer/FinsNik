@@ -1,0 +1,194 @@
+#root {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+}
+
+.loading-glass-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.92),
+    rgba(30, 41, 59, 0.92)
+  );
+  box-shadow: 0 20px 60px -24px rgba(14, 165, 233, 0.45);
+}
+
+.loading-glass-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.loading-glass-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.22),
+    transparent
+  );
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+.loading-bar {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    rgba(56, 189, 248, 0.35),
+    rgba(129, 230, 217, 0.35)
+  );
+  box-shadow: 0 10px 25px -15px rgba(45, 212, 191, 0.55);
+}
+
+.loading-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  55% {
+    transform: translateX(-15%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.page-turn-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.page-turn-shell.page-turning::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    120% 160% at 50% -20%,
+    rgba(56, 189, 248, 0.55),
+    rgba(14, 165, 233, 0.25) 55%,
+    rgba(6, 182, 212, 0.1) 75%,
+    transparent 100%
+  );
+  opacity: 0.75;
+  animation: pageTurnFlicker 0.75s ease-in-out infinite alternate;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+.page-turn-caption {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(203, 213, 225, 0.85);
+  animation: pageCaptionBlink 0.95s ease-in-out infinite;
+}
+
+.pager-active-loading {
+  position: relative;
+  overflow: hidden;
+  color: #0f172a !important;
+  box-shadow:
+    0 18px 38px -22px rgba(6, 182, 212, 0.85),
+    0 0 0 2px rgba(56, 189, 248, 0.65);
+  animation: pagerActivePulse 0.75s ease-in-out infinite;
+}
+
+.pager-active-loading::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    rgba(6, 182, 212, 0.75),
+    rgba(59, 130, 246, 0.55),
+    rgba(147, 51, 234, 0.35)
+  );
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  animation: pagerSheen 0.85s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pager-active-loading > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes pageTurnFlicker {
+  0% {
+    opacity: 0.25;
+    filter: blur(0.5px);
+  }
+  50% {
+    opacity: 0.65;
+    filter: blur(0.35px);
+  }
+  100% {
+    opacity: 0.25;
+    filter: blur(0.5px);
+  }
+}
+
+@keyframes pageCaptionBlink {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes pagerActivePulse {
+  0% {
+    transform: translateY(0);
+    filter: brightness(1);
+  }
+  50% {
+    transform: translateY(-1px);
+    filter: brightness(1.25);
+  }
+  100% {
+    transform: translateY(0);
+    filter: brightness(1);
+  }
+}
+
+@keyframes pagerSheen {
+  0% {
+    transform: translateX(-120%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "FinstaNIK",
+  "short_name": "FinstaNIK",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050910",
+  "theme_color": "#050910",
+  "description": "Personal wealth tracker app",
+  "icons": [
+    {
+      "src": "/icons/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/logo-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}
